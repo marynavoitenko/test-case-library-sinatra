@@ -1,0 +1,8 @@
+<p>Title: <%= @testcase.title %></p>
+<p>Description: <%= @testcase.description %></p>
+<p>Expected Result:<%= @testcase.expectedresult %></p>
+  <p>Features:
+    <% @testcase.features.each do |feature| %>
+      <a href='/features/<%=feature.id%>'><%= feature.title %></a>
+    <% end %>
+  </p>
