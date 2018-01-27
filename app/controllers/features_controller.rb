@@ -1,6 +1,11 @@
 class FeaturesController < ApplicationController
 
   get '/features' do
-    "Features"
+    if logged_in?
+      @features = Feature.all
+      erb :'features/features'
+    else
+      redirect to '/login'
+    end
   end
 end
