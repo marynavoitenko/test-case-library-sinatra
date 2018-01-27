@@ -6,3 +6,12 @@
       <a href='/features/<%=feature.id%>'><%= feature.title %></a>
     <% end %>
   </p>
+
+<form action='/testcases/<%= @testcase.id %>/edit' method='get'>
+  <input type="submit" value="edit">
+</form>
+
+<form action='/testcases/<%= @testcase.id %>/delete' method='post'>
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
