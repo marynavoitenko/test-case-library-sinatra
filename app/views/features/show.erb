@@ -1,0 +1,11 @@
+<h3>Feature: <%= @feature.title %></h3>
+<p>Description: <%= @feature.description %></p>
+<div class="testcase">
+  <p>Test Cases:
+    <ul>
+      <% @feature.testcases.each do |testcase| %>
+        <li><a href='/testcases/<%=testcase.id%>'><%= testcase.title %></a></li>
+      <% end %>
+    </ul>
+  </p>
+</div>

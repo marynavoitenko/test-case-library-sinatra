@@ -7,14 +7,15 @@ class FeaturesController < ApplicationController
     else
       redirect to '/login'
     end
+  end
 
-    get '/features/:id' do
-      if logged_in?
-        @feature = Feature.find(params[:id])
-        erb :'features/show'
-      else
-        redirect to '/login'
-      end
+  get '/features/:id' do
+    if logged_in?
+      @feature = Feature.find(params[:id])
+      erb :'features/show'
+    else
+      redirect to '/login'
     end
   end
+
 end
