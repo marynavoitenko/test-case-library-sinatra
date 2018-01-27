@@ -9,6 +9,26 @@ class TestcasesController < ApplicationController
     end
   end
 
+  get '/testcases/new' do
+    if logged_in?
+      erb :'testcases/new'
+    else
+      redirect to '/login'
+    end
+  end
+
+  post '/testcases' do
+    @testcase = current_user.testcases.create(params[:testcase])
+    if logged_in? && @testcase
+      if !params[:feature][:title].empty?
+        @testcase.features << Feature.create(params[:feature])
+      end
+      redirect to "/testcases/#{@testcase.id}"
+    else
+      redirect to 'testcases/new'
+    end
+  end
+
   get '/testcases/:id' do
     if logged_in?
       @testcase = Testcase.find(params[:id])
