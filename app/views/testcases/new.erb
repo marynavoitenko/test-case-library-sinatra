@@ -1,0 +1,36 @@
+<h1>Create Test Case:</h1>
+<form action='/testcases' method='POST'>
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Title:</label>
+  <input type=text name='testcase[title]'>
+  <br>
+  <br>
+  <label>Description:</label>
+  <input type=text name='testcase[description]'>
+  <br>
+  <br>
+  <label>Expected Result:</label>
+  <input type=text name='testcase[expectedresult]'>
+  <br>
+  <br>
+
+  <label>Features:</label>
+  <% Feature.all.each do |feature| %>
+    <input type='checkbox' name='testcase[feature_ids][]' value='<%=feature.id%>'><%=feature.title%></input>
+  <% end %>
+  <br>
+  <br>
+
+  <label>and/or create a new feature:</label>
+  <br>
+  <label>Title:</label>
+  <input type='text' name='feature[title]'>
+  <br>
+  <br>
+  <label>Description:</label>
+  <input type='text' name='feature[description]'>
+  <br>
+  <br>
+
+  <input type='submit' value='Save'>
+</form>
