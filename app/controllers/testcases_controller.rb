@@ -39,4 +39,12 @@ class TestcasesController < ApplicationController
     end
   end
 
+  delete '/testcases/:id/delete' do
+    testcase = Testcase.find(params[:id])
+    if logged_in? & current_user.testcases.include?(testcase)
+      testcase.destroy
+    end
+    redirect to '/testcases'
+  end
+
 end
