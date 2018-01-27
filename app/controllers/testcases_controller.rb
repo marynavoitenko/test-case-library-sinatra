@@ -9,4 +9,13 @@ class TestcasesController < ApplicationController
     end
   end
 
+  get '/testcases/:id' do
+    if logged_in?
+      @testcase = Testcase.find(params[:id])
+      erb :'testcases/show'
+    else
+      redirect to '/login'
+    end
+  end
+
 end
