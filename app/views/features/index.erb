@@ -1,0 +1,10 @@
+<h3>Welcome, <%= current_user.name %>!</h3>
+<p>Features:
+  <ul>
+    <div class="feature">
+      <% @features.each do |feature| %>
+        <li><a href='/features/<%=feature.id%>'><%= feature.title %></a>
+      <% end %>
+    </div>
+  </ul>
+</p>
