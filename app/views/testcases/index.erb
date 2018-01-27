@@ -1,0 +1,8 @@
+<h3>Test Cases:</h3>
+  <ul>
+    <div class="testcase">
+      <% @testcases.each do |testcase| %>
+        <li><a href='/testcases/<%=testcase.id%>'><%= testcase.title %></a>
+      <% end %>
+    </div>
+  </ul>
