@@ -1,6 +1,5 @@
 <h3>Feature: <%= @feature.title %></h3>
 <p>Description: <%= @feature.description %></p>
-<div class="testcase">
   <p>Test Cases:
     <ul>
       <% @feature.testcases.each do |testcase| %>
@@ -8,4 +7,3 @@
       <% end %>
     </ul>
   </p>
-</div>

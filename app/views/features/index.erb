@@ -1,9 +1,10 @@
-<p>Features:
-  <ul>
-    <div class="feature">
-      <% @features.each do |feature| %>
-        <li><a href='/features/<%=feature.id%>'><%= feature.title %></a>
-      <% end %>
-    </div>
-  </ul>
-</p>
+<table id="generic-table">
+  <tr>
+    <th>Feature</th>
+  </tr>
+  <% @features.each do |feature| %>
+    <tr>
+      <td><a href='/features/<%=feature.id%>'><%= feature.title %></a></td>
+    </tr>
+  <% end %>
+</table>

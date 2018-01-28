@@ -1,7 +1,14 @@
-<p>Test Cases:
-  <ul>
-    <% @testcases.each do |testcase| %>
-      <li><a href='/testcases/<%=testcase.id%>'><%= testcase.title %></li>
-    <% end %>
-  </ul>
-</p>
+<table id="generic-table">
+  <tr>
+    <th>Test Cases</th>
+    <th>Feature</th>
+  </tr>
+  <% @testcases.each do |testcase| %>
+    <% testcase.features.each do |feature| %>
+      <tr>
+        <td><a href='/testcases/<%=testcase.id%>'><%= testcase.title %></a></td>
+        <td><a href='/features/<%=feature.id%>'><%= feature.title %></a></td>
+      </tr>
+    <% end %>  
+  <% end %>
+</table>

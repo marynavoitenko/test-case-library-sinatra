@@ -12,12 +12,16 @@
           <ul id="topnav">
             <li class="menu-item"><a href='/features'>Features</a></li>
             <li class="menu-item"><a href='/testcases'>Test Cases</a></li>
+            <% if logged_in? %>
+              <li class="menu-item user"><a href='/users/<%=current_user.id%>'>My Test Cases</a></li>
+              <li class="menu-item user"><a href='/logout'>Log Out</a></li>
+            <% end %>
           </ul>
         </nav>
       </header>
       <main>
         <% if logged_in? %>
-          <h2>Welcome, <%= current_user.name %>!</h2>
+          <h3>Welcome, <%= current_user.name %>!</h3>
         <% end %>
 
         <%= yield %>
