@@ -36,6 +36,15 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/users/:id' do
+    if user = User.find(params[:id])
+      @testcases = user.testcases
+      erb :'users/show'
+    else
+      redirect to '/features'
+    end
+  end
+
   get '/logout' do
     if logged_in?
       session.clear
