@@ -2,13 +2,26 @@
 <html>
   <head>
     <title>Test Case Library</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   </head>
   <body>
     <div class="container">
-      <h1>Test Case Library</h1>
+      <header>
+        <h1>Test Case Library</h1>
+        <nav>
+          <!-- <a href='/'>Home</a><a href='/'>Features</a><a href='/'>Test Cases</a> -->
+          <ul id="topnav">
+            <li class="menu-item"><a href='/'>Home</a></li>
+            <li class="menu-item"><a href='/'>Features</a></li>
+            <li class="menu-item"><a href='/'>Test Cases</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
 
-      <%= yield %>
+        <%= yield %>
 
+      </main>
     </div>
   </body>
 </html>
