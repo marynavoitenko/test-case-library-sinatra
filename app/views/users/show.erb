@@ -1,0 +1,7 @@
+<p>Test Cases:
+  <ul>
+    <% @testcases.each do |testcase| %>
+      <li><a href='/testcases/<%=testcase.id%>'><%= testcase.title %></li>
+    <% end %>
+  </ul>
+</p>

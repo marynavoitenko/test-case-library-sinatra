@@ -2,22 +2,23 @@
 <html>
   <head>
     <title>Test Case Library</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="<%= url("/stylesheets/style.css")%>">
   </head>
   <body>
     <div class="container">
       <header>
         <h1>Test Case Library</h1>
         <nav>
-          <!-- <a href='/'>Home</a><a href='/'>Features</a><a href='/'>Test Cases</a> -->
           <ul id="topnav">
-            <li class="menu-item"><a href='/'>Home</a></li>
-            <li class="menu-item"><a href='/'>Features</a></li>
-            <li class="menu-item"><a href='/'>Test Cases</a></li>
+            <li class="menu-item"><a href='/features'>Features</a></li>
+            <li class="menu-item"><a href='/testcases'>Test Cases</a></li>
           </ul>
         </nav>
       </header>
       <main>
+        <% if logged_in? %>
+          <h2>Welcome, <%= current_user.name %>!</h2>
+        <% end %>
 
         <%= yield %>
 
