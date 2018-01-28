@@ -26,13 +26,17 @@
     background-color: #555;
 }
 
+#generic-table td {
+  width: 350px;
+}
+
 #generic-table td, #generic-table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
 #generic-table tr:hover {
-  background-color: #ddd;
+  background-color: #ddd;set
 }
 
 #generic-table th {

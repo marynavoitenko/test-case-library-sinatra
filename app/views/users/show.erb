@@ -1,6 +1,6 @@
 <table id="generic-table">
   <tr>
-    <th>Test Cases</th>
+    <th>Test Case</th>
     <th>Feature</th>
   </tr>
   <% @testcases.each do |testcase| %>
@@ -9,6 +9,6 @@
         <td><a href='/testcases/<%=testcase.id%>'><%= testcase.title %></a></td>
         <td><a href='/features/<%=feature.id%>'><%= feature.title %></a></td>
       </tr>
-    <% end %>  
+    <% end %>
   <% end %>
 </table>
