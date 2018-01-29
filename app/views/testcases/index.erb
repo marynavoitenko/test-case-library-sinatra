@@ -2,15 +2,23 @@
   <thead>
     <tr>
       <th>Test Cases</th>
-      <th>Feature Count</th>
+      <th>Features</th>
     </tr>
   </thead>
   <tbody>
     <% @testcases.each do |testcase| %>
       <tr>
         <td><a href='/testcases/<%=testcase.id%>'><%= testcase.title %></a></td>
-        <td><%= testcase.features.count %></td>
+        <td>
+          <% testcase.features.each do |feature| %>
+            <a href='/features/<%=feature.id%>'><%= feature.title %></a>
+            <br>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<form action='/testcases/new' method='get'>
+  <input type="submit" value="Add New Test Case">
+</form>

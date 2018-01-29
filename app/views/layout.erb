@@ -7,12 +7,15 @@
   <body>
     <div class="container">
       <header>
-        <h1>Test Case Library</h1>
+        <h1 id="logo">Test Case Library</h1>
+        <% if logged_in? %>
+          <h3 id="welcome">Welcome, <%= current_user.name %>!</h3>
+        <% end %>
         <nav>
           <ul id="topnav">
-            <li class="menu-item"><a href='/features'>Features</a></li>
-            <li class="menu-item"><a href='/testcases'>Test Cases</a></li>
             <% if logged_in? %>
+              <li class="menu-item"><a href='/features'>Features</a></li>
+              <li class="menu-item"><a href='/testcases'>Test Cases</a></li>
               <li class="menu-item user"><a href='/users/<%=current_user.id%>'>My Test Cases</a></li>
               <li class="menu-item user"><a href='/logout'>Log Out</a></li>
             <% end %>
@@ -20,9 +23,6 @@
         </nav>
       </header>
       <main>
-        <% if logged_in? %>
-          <h3>Welcome, <%= current_user.name %>!</h3>
-        <% end %>
 
         <%= yield %>
 

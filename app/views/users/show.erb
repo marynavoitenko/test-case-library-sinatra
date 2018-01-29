@@ -1,18 +1,31 @@
-<table id="generic-table">
-  <thead>
-    <tr>
-      <th>Test Case</th>
-      <th>Feature</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @testcases.each do |testcase| %>
-      <% testcase.features.each do |feature| %>
+<% if @testcases.empty? %>
+  <p>You have not created any test cases.<p>
+  <form action='/testcases/new' method='get'>
+    <input type="submit" value="Add New Test Case">
+  </form>
+<% else %>
+  <table id="generic-table">
+    <thead>
+      <tr>
+        <th>Test Case</th>
+        <th>Feature</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @testcases.each do |testcase| %>
         <tr>
           <td><a href='/testcases/<%=testcase.id%>'><%= testcase.title %></a></td>
-          <td><a href='/features/<%=feature.id%>'><%= feature.title %></a></td>
+          <td>
+            <% testcase.features.each do |feature| %>
+              <a href='/features/<%=feature.id%>'><%= feature.title %></a>
+              <br>
+            <% end %>
+          </td>
         </tr>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+<% end %>
+<form action='/testcases/new' method='get'>
+  <input type="submit" value="Add New Test Case">
+</form>

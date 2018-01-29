@@ -2,14 +2,19 @@
   <thead>
     <tr>
       <th>Feature</th>
-      <th>Test Case Count</th>
+      <th>Test Cases</th>
     </tr>
   </thead>
   <tbody>
     <% @features.each do |feature| %>
       <tr>
         <td><a href='/features/<%=feature.id%>'><%= feature.title %></a></td>
-        <td><%= feature.testcases.count %></td>
+        <td>
+          <% feature.testcases.each do |testcase| %>
+            <a href='/testcases/<%=testcase.id%>'><%= testcase.title %></a>
+            <br>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

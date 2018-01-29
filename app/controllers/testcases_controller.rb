@@ -40,8 +40,12 @@ class TestcasesController < ApplicationController
 
   get '/testcases/:id/edit' do
     if logged_in?
-      @testcase = current_user.testcases.find(params[:id])
-      erb :'testcases/edit'
+      @testcase = Testcase.find(params[:id])
+      if current_user.testcases.include?(@testcase) 
+        erb :'testcases/edit'
+      else
+        redirect to "testcases/#{@testcase.id}"
+      end
     else
       redirect to '/login'
     end
