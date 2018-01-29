@@ -1,9 +1,24 @@
-<h3>Feature: <%= @feature.title %></h3>
-<p>Description: <%= @feature.description %></p>
-  <p>Test Cases:
-    <ul>
-      <% @feature.testcases.each do |testcase| %>
-        <li><a href='/testcases/<%=testcase.id%>'><%= testcase.title %></a></li>
-      <% end %>
-    </ul>
-  </p>
+<table id="generic-table">
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+      <th>Test Cases</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @feature.title %></td>
+      <td><%= @feature.description %></td>
+      <td>
+        <% @feature.testcases.each do |testcase| %>
+            <a href='/testcases/<%=testcase.id%>'><%= testcase.title %></a>
+            <br>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<form action='/testcases/new' method='get'>
+  <input type="submit" value="Add New Test Case">
+</form>

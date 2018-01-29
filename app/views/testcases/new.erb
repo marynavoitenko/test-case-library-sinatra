@@ -1,34 +1,38 @@
-<h3>Create Test Case:</h3>
+<h4>Create Test Case:</h4>
 <form action='/testcases' method='POST'>
-  <label>Title:</label>
-  <input type=text name='testcase[title]'>
-  <br>
-  <br>
-  <label>Description:</label>
-  <input type=text name='testcase[description]'>
-  <br>
-  <br>
-  <label>Expected Result:</label>
-  <input type=text name='testcase[expectedresult]'>
-  <br>
-  <br>
+    <table id="generic-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Expected Result</th>
+          <th>Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type=text name='testcase[title]' id='testcase_title'></td>
+          <td><input type=text name='testcase[description]' id='testcase_description'></td>
+          <td><input type=text name='testcase[expectedresult]' id='testcase_expectedresult'></td>
+          <td>
+            <% Feature.all.each do |feature| %>
+              <input type='checkbox' name='testcase[feature_ids][]' value='<%=feature.id%>'><%=feature.title%></input>
+              <br>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-  <label>Features:</label>
-  <% Feature.all.each do |feature| %>
-    <input type='checkbox' name='testcase[feature_ids][]' value='<%=feature.id%>'><%=feature.title%></input>
-  <% end %>
-  <br>
-  <br>
 
-  <label>and/or create a new feature:</label>
+
+  <p>and/or create a new feature:</p>
   <br>
   <label>Title:</label>
   <input type='text' name='feature[title]'>
   <br>
-  <br>
   <label>Description:</label>
   <input type='text' name='feature[description]'>
-  <br>
   <br>
 
   <input type='submit' value='Save'>

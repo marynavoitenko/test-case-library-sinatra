@@ -1,10 +1,16 @@
 <table id="generic-table">
-  <tr>
-    <th>Feature</th>
-  </tr>
-  <% @features.each do |feature| %>
+  <thead>
     <tr>
-      <td><a href='/features/<%=feature.id%>'><%= feature.title %></a></td>
+      <th>Feature</th>
+      <th>Test Case Count</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @features.each do |feature| %>
+      <tr>
+        <td><a href='/features/<%=feature.id%>'><%= feature.title %></a></td>
+        <td><%= feature.testcases.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

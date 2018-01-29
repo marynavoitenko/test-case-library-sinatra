@@ -1,18 +1,34 @@
-<p>Title: <%= @testcase.title %></p>
-<p>Description: <%= @testcase.description %></p>
-<p>Expected Result:<%= @testcase.expectedresult %></p>
-  <p>Features:
-    <% @testcase.features.each do |feature| %>
-      <a href='/features/<%=feature.id%>'><%= feature.title %></a>
-    <% end %>
-  </p>
+<table id="generic-table">
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Description</th>
+      <th>Expected Result</th>
+      <th>Features</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @testcase.title %></td>
+      <td><%= @testcase.description %></td>
+      <td><%= @testcase.expectedresult %></td>
+      <td>
+        <% @testcase.features.each do |feature| %>
+          <a href='/features/<%=feature.id%>'><%= feature.title %></a>
+          <br>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <% if current_user.testcases.include?(@testcase) %>
   <form action='/testcases/<%= @testcase.id %>/edit' method='get'>
-    <input type="submit" value="edit">
+    <input type="submit" value="edit" class="edit">
   </form>
 
   <form action='/testcases/<%= @testcase.id %>/delete' method='post'>
     <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" value="delete">
+    <input type="submit" value="delete" class="delete">
   </form>
 <% end %>
