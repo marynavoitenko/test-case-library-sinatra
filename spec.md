@@ -9,8 +9,8 @@ Specs:
 - [x] Ensure that users can't modify content created by other users :: only the user who created the particular testcase can modify it.
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying :: belongs_to resource is Testcase, it has routes for each of the CRUD actions.
 - [x] Include user input validations :: the application validates presence of name, email, password on signup, and email and password on login, as well as uniqueness of email on signup, so that bad data is not created.
-- [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Display validation failures to user with error message (example form URL e.g. /posts/new) :: using session and flash, error message is displayed when sign up or login fails because of validation
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code :: added README
 
 Confirm
 - [x] You have a large number of small Git commits
