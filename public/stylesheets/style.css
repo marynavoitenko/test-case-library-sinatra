@@ -101,6 +101,9 @@ input[type=submit]:hover {
   background-color: #ccc;
 }
 
+input[type=submit], #error {
+  float: left;
+}
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -119,5 +122,4 @@ input[type=text], input[type=password] {
    margin-top: 10px;
    margin-left: 10px;
    color: #999;
-
  }
