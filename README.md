@@ -11,7 +11,7 @@ This app was designed for a user who needs to keep track of the testcases for a 
 ## CONTRIBUTING
 Bug reports and pull requests are welcome on GitHub at https://github.com/marynavoitenko/test-case-library-sinatra. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-##LICENSE
+## LICENSE
 The MIT License (MIT)
 
 Copyright (c) 2017 marynavoitenko
