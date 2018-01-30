@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  use Rack::Flash
 
   get '/signup' do
     if logged_in?
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect to '/features'
     else
+      flash[:message] = "Something went wrong. Please try again."
       redirect to '/signup'
     end
   end
@@ -32,6 +34,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect to '/features'
     else
+      flash[:message] = "Something went wrong. Please try again."
       redirect to '/login'
     end
   end

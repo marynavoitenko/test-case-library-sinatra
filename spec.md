@@ -1,7 +1,7 @@
 # Specifications for the Sinatra Assessment
 
 Specs:
-- [x] Use Sinatra to build the app :: applicaiton is built using sinatra gem, MVC design pattern.
+- [x] Use Sinatra to build the app :: applicaiton is built using sinatra gem, MVC design pattern, each of the models inherit from Sinatra::Base class
 - [x] Use ActiveRecord for storing information in a database :: application is build using ActiveRecord with Sinatra
 - [x] Include more than one model class (list of model class names e.g. User, Post, Category) :: User, Testcase, Feature, FeatureTestcase
 - [x] Include at least one has_many relationship (x has_many y e.g. User has_many Posts) :: User has_many Testcases, Testcases has_many Features, Features has_many Testcases
