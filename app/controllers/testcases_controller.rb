@@ -41,7 +41,7 @@ class TestcasesController < ApplicationController
   get '/testcases/:id/edit' do
     if logged_in?
       @testcase = Testcase.find(params[:id])
-      if current_user.testcases.include?(@testcase) 
+      if current_user.testcases.include?(@testcase)
         erb :'testcases/edit'
       else
         redirect to "testcases/#{@testcase.id}"
@@ -56,10 +56,12 @@ class TestcasesController < ApplicationController
     if logged_in? & @testcase.update(params[:testcase])
       if !params[:feature][:title].empty?
         @testcase.features << Feature.create(params[:feature])
+      else
+        redirect to "/testcases/#{@testcase.id}/edit"
       end
       redirect to "testcases/#{@testcase.id}"
     else
-      erb :error
+      redirect to "/testcases/#{@testcase.id}/edit"
     end
   end
 
