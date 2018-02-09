@@ -56,7 +56,7 @@ class TestcasesController < ApplicationController
     if logged_in? & @testcase.update(params[:testcase])
       if !params[:feature][:title].empty?
         @testcase.features << Feature.create(params[:feature])
-      else
+      elsif !params[:feature][:description].empty?
         redirect to "/testcases/#{@testcase.id}/edit"
       end
       redirect to "testcases/#{@testcase.id}"
