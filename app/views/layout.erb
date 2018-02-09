@@ -18,6 +18,9 @@
               <li class="menu-item"><a href='/testcases'>Test Cases</a></li>
               <li class="menu-item user"><a href='/users/<%=current_user.id%>'>My Test Cases</a></li>
               <li class="menu-item user"><a href='/logout'>Log Out</a></li>
+            <% else %>
+              <li class="menu-item user"><a href='/signup'>Sign Up</a></li>
+              <li class="menu-item user"><a href='/login'>Log In</a></li>
             <% end %>
           </ul>
         </nav>
